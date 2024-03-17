@@ -7,7 +7,9 @@ import { JsonExtractor } from './jsonExtractor';
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	let disposable = vscode.languages.registerDocumentRangeFormattingEditProvider(['plaintext', 'log'], {
+	const config = vscode.workspace.getConfiguration('multijsonformatter');
+    const selector = config.identifiersOfLanguages.split(',');
+    let disposable = vscode.languages.registerDocumentRangeFormattingEditProvider(selector, {
         provideDocumentRangeFormattingEdits(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token: vscode.CancellationToken): vscode.TextEdit[] {
             const text = document.getText(range);
             const offset = document.offsetAt(range.start);

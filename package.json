@@ -2,20 +2,55 @@
   "name": "multijsonformatter",
   "displayName": "Multi Json Formatter",
   "description": "JSON multi fragments formatter",
-  "publisher": "Aleksei Grigorev",
-  "repository": "github:AlekseiGrigorev/MultiJsonFormatter",
+  "publisher": "aleksei-grigorev",
+  "author": {
+    "name": "Aleksei Grigorev",
+    "email": "info@aleksvgrig.com",
+    "url": "https://www.aleksvgrig.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlekseiGrigorev/MultiJsonFormatter.git"
+  },
   "license": "SEE LICENSE IN LICENSE.txt",
   "icon": "images/logo.png",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.87.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Formatters"
   ],
+  "keywords": [
+    "json",
+    "formatter",
+    "fragment",
+    "text",
+    "log"
+  ],
+  "bugs": {
+    "url": "https://github.com/AlekseiGrigorev/MultiJsonFormatter/issues",
+    "email": "info@aleksvgrig.com"
+  },
+  "homepage": "https://github.com/AlekseiGrigorev/MultiJsonFormatter/blob/main/README.md",
   "activationEvents": [
     "onStartupFinished"
   ],
+  "contributes": {
+    "configuration": {
+      "title": "Multi Json Formatter",
+      "type": "object",
+      "properties": {
+        "multijsonformatter.identifiersOfLanguages": {
+          "type": "string",
+          "default": "plaintext,log",
+          "description": "Comma separated identifiers of languages associated with this document that specify the documents to which this formatter is applicable. 'plaintext,log' as default. Reload required. See https://code.visualstudio.com/docs/languages/overview",
+          "scope": "resource"
+        }
+      }
+    }
+  },
   "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
